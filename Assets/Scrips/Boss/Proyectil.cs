@@ -4,21 +4,23 @@ using UnityEngine;
 
 public class Proyectil : Enemy
 {
-    [SerializeField] float KeyVelocity;
+    [SerializeField] float KeyVelocity, TimeDestroy;
+    // Player player;
+    public override void Start()
+    {
+        base.Start();
+        Destroy(gameObject, TimeDestroy);
+    }
     public override void Update()
     {
         base.Update();
-        RaycastHit2D hit;
-        if (this.transform.rotation.eulerAngles.z == 0)
-         hit = Physics2D.Raycast(transform.position, Vector2.left, 3f, LayerMask.GetMask("Player"));
-        else
-         hit = Physics2D.Raycast(transform.position, Vector2.down, 3f, LayerMask.GetMask("Player"));
-        if (hit == true)
-        {
-            Player player = hit.collider.gameObject.GetComponent<Player>();
-            if (color == player.Color && player!= null)
-                ToDie = true;
-        }
+
+    }
+
+    public override void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.GetComponent<Player>().Color == color) ToDie = true;
+        base.OnCollisionEnter2D(collision);
 
     }
     public override void Mov()

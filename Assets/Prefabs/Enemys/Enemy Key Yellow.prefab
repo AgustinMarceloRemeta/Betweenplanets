@@ -103,6 +103,7 @@ MonoBehaviour:
   velocity: 0
   color: {fileID: 0}
   KeyVelocity: 3
+  TimeDestroy: 10
 --- !u!60 &-1643522943729982395
 PolygonCollider2D:
   m_ObjectHideFlags: 0

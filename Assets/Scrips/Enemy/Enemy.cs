@@ -37,7 +37,7 @@ public abstract class Enemy : MonoBehaviour
         this.gameObject.GetComponent<SpriteRenderer>().sprite = DeadSprite;
         Destroy(this.gameObject,0.2f);
     }
-    private void OnCollisionEnter2D(Collision2D collision)
+    public virtual void OnCollisionEnter2D(Collision2D collision)
     {
         Player player = collision.gameObject.GetComponent<Player>();
         if (player != null)

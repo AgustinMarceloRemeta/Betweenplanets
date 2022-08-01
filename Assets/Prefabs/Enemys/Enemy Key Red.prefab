@@ -103,6 +103,7 @@ MonoBehaviour:
   velocity: 0
   color: {fileID: 11400000, guid: bee5cd9be7a4eeb4e83eedc270b692e4, type: 2}
   KeyVelocity: 3
+  TimeDestroy: 10
 --- !u!60 &-5768178661466828561
 PolygonCollider2D:
   m_ObjectHideFlags: 0
