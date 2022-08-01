@@ -10,6 +10,7 @@ public class GameManager : MonoBehaviour
 {
     public static Action DieEvent;
     public static Action RestLifeEvent;
+    public static Action PauseEvent;
     [Header("ChangePlayer")]
    
     [SerializeField] GameObject Grey, Green, Red, Blue, Yellow;
@@ -20,10 +21,12 @@ public class GameManager : MonoBehaviour
     public int Life;
     [SerializeField] Harts[] harts;
     [SerializeField] GameObject sound;
+
      
 
     void Start()
     {
+        Time.timeScale = 1;
         PlayerActive = FindObjectOfType<Player>().gameObject;
         SpPlayer.sprite = PlayerActive.GetComponent<Player>().ColorSp;
     }
@@ -33,6 +36,8 @@ public class GameManager : MonoBehaviour
         Colors();
         this.transform.position = PlayerActive.transform.position;
     }
+
+
 
     #region ChangePlayer
     void Change(GameObject PlayerNew)
